@@ -114,9 +114,8 @@ class EmployeeController extends Controller
             $fileName = $employee->image;
         }
         
-        $employee->fill($request->except('image', 'skills'));
+        $employee->fill($request->except('image'));
         $employee->image = '/'.$fileName;
-        $employee->skills = $request->skills;
         $employee->save();
 
         return response('Successfully Updated', 200);

@@ -2091,6 +2091,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "home",
   data: function data() {
@@ -2130,7 +2141,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       var arr = this.form.skills;
 
       for (var i = 0; i < arr.length; i++) {
-        formData.append('skills[]', arr[i]);
+        formData.append("skills[]", arr[i]);
       }
 
       formData.append("image", this.form.image);
@@ -2152,7 +2163,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       var arr = this.form.skills;
 
       for (var i = 0; i < arr.length; i++) {
-        formData.append('skills[]', arr[i]);
+        formData.append("skills[]", arr[i]);
       }
 
       if (this.form.image) {
@@ -2160,7 +2171,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
 
       formData.append("email", this.form.email);
-      formData.append("_method", 'PUT');
+      formData.append("_method", "PUT");
       axios.post("api/employee/update/".concat(this.form.id), formData).then(function (response) {
         _this3.getEmployees();
 
@@ -42075,7 +42086,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                    Male\n                                                "
+                                  "\n                          Male\n                        "
                                 )
                               ]
                             )
@@ -42118,7 +42129,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                    Female\n                                                "
+                                  "\n                          Female\n                        "
                                 )
                               ]
                             )
@@ -42202,7 +42213,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                    Laravel\n                                                "
+                                  "\n                          Laravel\n                        "
                                 )
                               ]
                             )
@@ -42271,7 +42282,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                    Codeigniter\n                                                "
+                                  "\n                          Codeigniter\n                        "
                                 )
                               ]
                             )
@@ -42342,7 +42353,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                    Ajax\n                                                "
+                                  "\n                          Ajax\n                        "
                                 )
                               ]
                             )
@@ -42411,7 +42422,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                    VUE JS\n                                                "
+                                  "\n                          VUE JS\n                        "
                                 )
                               ]
                             )
@@ -42482,7 +42493,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                    MySQL\n                                                "
+                                  "\n                          MySQL\n                        "
                                 )
                               ]
                             )
@@ -42551,7 +42562,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                                    Api\n                                                "
+                                  "\n                          Api\n                        "
                                 )
                               ]
                             )
@@ -42561,14 +42572,23 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "submit" }
-                    },
-                    [_vm._v("Submit")]
-                  )
+                  _vm.is_editing
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit" }
+                        },
+                        [_vm._v("Update")]
+                      )
+                    : _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit" }
+                        },
+                        [_vm._v("Submit")]
+                      )
                 ]
               )
             ]),
@@ -42590,6 +42610,20 @@ var render = function() {
                       _c("td", [_vm._v(_vm._s(employee.name))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(employee.email))]),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        _vm._l(employee.skills, function(skill, index) {
+                          return _c("div", { key: index }, [
+                            _vm._v(
+                              "\n                      " +
+                                _vm._s(skill) +
+                                "\n                    "
+                            )
+                          ])
+                        }),
+                        0
+                      ),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(employee.gender))]),
                       _vm._v(" "),
@@ -42619,7 +42653,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                                        Edit\n                                    "
+                              "\n                      Edit\n                    "
                             )
                           ]
                         ),
@@ -42638,7 +42672,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                                        Delete\n                                    "
+                              "\n                      Delete\n                    "
                             )
                           ]
                         )
@@ -42667,6 +42701,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Skills")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Gender")]),
         _vm._v(" "),
