@@ -17,7 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('gender');
+            $table->enum('gender',['Male','Female']);
             $table->text('skills');
             $table->text('image')->nullable();
             $table->softDeletes();
